@@ -9,7 +9,18 @@ public partial class NewsListPage : ContentPage
 	{
 		Title = categoryName;
 		InitializeComponent();
-		ApiService.GetNews(categoryName);
+		GetCategoryNews(categoryName);
 		ArticleList = new List<Article>();
+	}
+
+	public async Task GetCategoryNews(string categoryName)
+	{
+		var apiService = new ApiService();
+		var newsResult = await apiService.GetNews(categoryName);
+		foreach (var article in newsResult.Articles)
+		{
+			ArticleList.Add(article);
+		}
+		CategoryNews.ItemsSource = ArticleList;
 	}
 }
