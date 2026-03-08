@@ -5,13 +5,15 @@ namespace NewsApplication.Pages;
 public partial class NewsListPage : ContentPage
 {
 	public List<Article> ArticleList;
-	public NewsListPage(string categoryName)
+	public NewsListPage(Category category)
 	{
-		Title = categoryName;
+		string categoryName = category.Name;
+        Title = categoryName;
 		InitializeComponent();
 		GetCategoryNews(categoryName);
 		ArticleList = new List<Article>();
-	}
+
+    }
 
 	public async Task GetCategoryNews(string categoryName)
 	{
@@ -21,6 +23,6 @@ public partial class NewsListPage : ContentPage
 		{
 			ArticleList.Add(article);
 		}
-		CategoryNews.ItemsSource = ArticleList;
+		CatNews.ItemsSource = ArticleList;
 	}
 }

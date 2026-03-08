@@ -6,7 +6,7 @@
     <Grid RowDefinitions="*">
         <CollectionView Grid.Row="0"
                         Margin="5"
-                        x:Name="CvNews">
+                        x:Name="CatNews">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="15" />
