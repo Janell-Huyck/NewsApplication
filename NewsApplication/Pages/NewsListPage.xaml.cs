@@ -8,7 +8,7 @@ public partial class NewsListPage : ContentPage
 	public NewsListPage(Category category)
 	{
 		string categoryName = category.Name;
-		Title = categoryName;
+		BindingContext = new { categoryName };
 		ArticleList = new List<Article>();
 		InitializeComponent();
 		LoadCategoryNewsAsync(categoryName);
