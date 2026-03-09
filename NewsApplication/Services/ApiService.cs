@@ -1,11 +1,15 @@
-﻿using Javax.Security.Auth;
-using NewsApplication.Models;
-using Newtonsoft.Json;
+﻿#if ANDROID
+using Javax.Security.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endif
+
+using NewsApplication.Models;
+using Newtonsoft.Json;
+
 
 namespace NewsApplication.Services
 {
