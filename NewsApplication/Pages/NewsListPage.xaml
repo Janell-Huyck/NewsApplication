@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NewsApplication.Pages.NewsListPage"
              Title="{Binding categoryName}">
-    <Grid RowDefinitions="*">
+    <Grid RowDefinitions="*" Padding="0">
         <CollectionView Grid.Row="0"
-                        Margin="5"
+                        Margin="10"
                         x:Name="CatNews"
                         SelectionMode="Single"
                         SelectionChanged="OnArticleSelectionChanged">
@@ -15,16 +15,21 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="5"
+                    <Border Padding="12"
                             Margin="5">
-                        <HorizontalStackLayout Padding="10"
-                                             Spacing="0"
-                                             VerticalOptions="Center">
-                            <Image HeightRequest="200"
-                                   Aspect="Fill"
-                                   Source="{Binding Image}"/>
+                        <HorizontalStackLayout Padding="0"
+                                               Spacing="12"
+                                               VerticalOptions="Center">
+                            <Image WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"
+                                   Source="{Binding Image}" />
                             <Label FontSize="Medium"
-                                   Text="{Binding Title}"/>
+                                   LineBreakMode="WordWrap"
+                                   MaximumLines="3"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   Text="{Binding Title}" />
                         </HorizontalStackLayout>
                     </Border>
                 </DataTemplate>
