@@ -26,7 +26,7 @@
                                    Source="{Binding Image}" />
                             <Label FontSize="Medium"
                                    LineBreakMode="WordWrap"
-                                   MaximumLines="3"
+                                   MaxLines="4"
                                    VerticalOptions="Center"
                                    HorizontalOptions="FillAndExpand"
                                    Text="{Binding Title}" />
