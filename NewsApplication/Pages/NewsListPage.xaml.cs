@@ -8,14 +8,13 @@ public partial class NewsListPage : ContentPage
 	public NewsListPage(Category category)
 	{
 		string categoryName = category.Name;
-        Title = categoryName;
-		InitializeComponent();
-		GetCategoryNews(categoryName);
+		Title = categoryName;
 		ArticleList = new List<Article>();
+		InitializeComponent();
+		LoadCategoryNewsAsync(categoryName);
+	}
 
-    }
-
-	public async Task GetCategoryNews(string categoryName)
+	private async void LoadCategoryNewsAsync(string categoryName)
 	{
 		var apiService = new ApiService();
 		var newsResult = await apiService.GetNews(categoryName);
@@ -24,5 +23,13 @@ public partial class NewsListPage : ContentPage
 			ArticleList.Add(article);
 		}
 		CatNews.ItemsSource = ArticleList;
+	}
+
+	private async void OnArticleSelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		if (e.CurrentSelection.FirstOrDefault() is not Article article) return;
+		var collectionView = (CollectionView)sender;
+		await Navigation.PushAsync(new NewsDetailPage(article));
+		collectionView.SelectedItem = null;
 	}
 }

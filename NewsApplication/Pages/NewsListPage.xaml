@@ -6,7 +6,9 @@
     <Grid RowDefinitions="*">
         <CollectionView Grid.Row="0"
                         Margin="5"
-                        x:Name="CatNews">
+                        x:Name="CatNews"
+                        SelectionMode="Single"
+                        SelectionChanged="OnArticleSelectionChanged">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="15" />
